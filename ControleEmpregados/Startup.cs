@@ -1,3 +1,4 @@
+using ControleEmpregados.Configuracao;
 using ControleEmpregados.Dados;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,7 @@ namespace ControleEmpregados
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddDbContext<EmpregadoContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("EmpregadoDB")).EnableSensitiveDataLogging());
         }
 

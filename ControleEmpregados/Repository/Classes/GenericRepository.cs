@@ -40,12 +40,9 @@ namespace ControleEmpregados.Repository.Classes
             return true;
         }
 
-        public virtual async Task<bool> Delete(Guid id, T entity)
+        public virtual async Task<bool> Delete(T entity)
         {
-            var exist = dbSet.Contains(entity);
-            exist.ToString();
-
-            return exist;
+            return await dbSet.ContainsAsync(entity);
         }
 
         public virtual async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate)
@@ -59,6 +56,11 @@ namespace ControleEmpregados.Repository.Classes
         }
 
         public Task<IEnumerable<T>> All()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Delete(Guid id)
         {
             throw new NotImplementedException();
         }

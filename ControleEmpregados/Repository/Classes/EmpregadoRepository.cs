@@ -52,7 +52,7 @@ namespace ControleEmpregados.Repository.Classes
             }
         }
 
-        public override async Task<bool> Delete(Guid id)
+        public virtual async Task<bool> Delete(Guid id)
         {
             try
             {
